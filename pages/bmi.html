@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Tune Fitness // BMI CALC</title>
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+</head>
+<body>
+
+   <!-- Nav Bar -->
+
+  <section class="black nav">
+
+      <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="p-4">
+            <a href="../index.html"><h4 class="text-white">HOME</h4></a>
+            <a href="bmi.html"><h4 class="text-white">BMI</h4></a>
+            <a href="tdee.html"><h4 class="text-white">TDEE</h4></a>
+            <a href="max.html"><h4 class="text-white">MAX</h4></a>
+            <a href="wilks.html"><h4 class="text-white">WILKS</h4></a>
+            <span class="text-muted">Lift Calc</span>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+      </div>
+  </section>
+
+  <!-- Forms -->
+  
+  <section class="bmicalcforms">
+
+    
+    <form class="bmi-forms">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="standard-radio" checked>
+        <label class="form-check-label" for="exampleRadios1">
+          STANDARD
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="metric-radio" />
+        <label class="form-check-label" for="exampleRadios2">
+          METRIC
+        </label>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <div class="col col-lg-2">
+          <input id="height-field" type="number" class="form-control" placeholder="HEIGHT (IN/CM)">
+        </div>
+        <div class="col col-lg-2">
+          <input id="weight-field" type="number" class="form-control" placeholder="WEIGHT (LBS/KGS)">
+        </div>
+      </div>
+      <button type="button" class="btn btn-dark" onclick="bmiCalculator()">CALCULATE</button>
+    </form>
+
+    
+       <p class="yourbmi">YOUR BMI IS:</p>
+       <h3 id="bmi"></h3>
+
+    <script>
+      function bmiCalculator() {
+        var standard = document.getElementById('standard-radio').checked;   
+        var height = document.getElementById('height-field').value;
+        var weight = document.getElementById('weight-field').value;
+        var bmi = null;
+    
+        if (standard) {
+          console.log('STANDARD')
+          bmi = (703 * weight) / (height * height);
+        } else {
+          bmi = weight / (height * height) * 10000;
+        }
+         
+        if (bmi) {
+          document.getElementById('bmi').innerHTML = Math.round(bmi);
+        }
+      }
+
+
+      var bmi = bmiCalculator();
+      console.log(bmi);
+    </script>
+
+
+  </section>
+
+  <section="bmi-faq">
+   
+  <h3>FAQ</h3>
+
+<p>
+What is my BMI? </br>
+BMI is body mass index, a person's weight in kilograms divided by the square of height in meters.  It is measure of body fat based off of one's height and weight. </br>
+</br>
+Is the BMI an accurate tool? </br>
+The BMI is accurate for the average person.  It is inaccurate for people like bodybuilders, athletes and also people who are abnormally tall or short.  It is a good tool for the average person to get an idea of how overweight or underweight they might be.  However, sometimes your eyes can be an even better tool. </br>
+
+</p>
+  </section>
+ </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Tune Fitness // MAX CALC</title>
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+</head>
+<body>
+  <!-- Nav Bar -->
+
+  <section class="black nav">
+
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+          <a href="../index.html"><h4 class="text-white">HOME</h4></a>
+          <a href="bmi.html"><h4 class="text-white">BMI</h4></a>
+          <a href="tdee.html"><h4 class="text-white">TDEE</h4></a>
+          <a href="max.html"><h4 class="text-white">MAX</h4></a>
+          <a href="wilks.html"><h4 class="text-white">WILKS</h4></a>
+          <span class="text-muted">Lift Calc</span>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
+  
+
+</section>
+
+  <!-- Calculator -->
+
+  <section class="max-forms">
+
+  <form>
+  
+  <div class="form-check form-check-inline justify-content-center align-items-center">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standard-max-radio" value="option1">
+    <label class="form-check-label" for="inlineRadio1">STANDARD</label>
+  </div>
+  <div class="form-check form-check-inline justify-content-center align-items-center">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="metric-max-radio" value="option2">
+    <label class="form-check-label" for="inlineRadio2">METRIC</label>
+  </div>
+
+  <div class="form-group col col-md-2">
+    <label for="exampleFormControlSelect1" id="reps-field">HOW MANY REPS</label>
+    <select class="form-control">
+      <option>1</option>
+      <option>2 REPS</option>
+      <option>3 REPS</option>
+      <option>4 REPS</option>
+      <option>5 REPS</option>
+      <option>6 REP</option>
+      <option type="number">7</option>
+      <option>8 REPS</option>
+      <option>9 REPS</option>
+      <option>10 REPS</option>
+    </select>
+  </div>
+  
+  <div class=" form-group col col-md-2">
+    <label for="formGroupExampleInput" id="weight-max">HOW MUCH WEIGHT</label>
+    <input type="number" class="form-control" id="max-weight" placeholder="WEIGHT (LBS/KG)">
+  </div>
+
+  <button type="button" class="btn btn-dark" onclick="oneRepCalculator()">CALCULATE</button>
+
+</form>
+
+<p>YOUR ONE REP MAX IS:</p>
+<h3 id="oneRep"></h3>
+
+<script>
+
+function oneRepCalculator() {
+  standard = document.getElementById('standard-max-radio').checked;
+  var weight = document.getElementById('max-weight').value;
+  var reps = document.getElementById('reps-field').value;
+  var oneRep = null;
+
+  if (standard) {
+    oneRep = weight / 1.0278 - (0.0278 * reps);
+    console.log(oneRep);
+  } 
+
+  if (oneRep) {
+      document.getElementById('oneRep').innerHTML = (oneRep);
+
+  
+  }
+}
+
+var oneRep = oneRepCalculator();
+  console.log(oneRep);
+
+</script>
+
+</section>
+
+</body>
+</html>
